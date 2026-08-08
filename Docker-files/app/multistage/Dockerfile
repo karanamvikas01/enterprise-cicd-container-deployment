@@ -10,7 +10,7 @@ WORKDIR /usr/local/src/maven
 RUN mvn install -DskipTests
 
 # Stage 2 - Runtime Image
-FROM tomcat:10-jdk21-temurin
+FROM tomcat:9-jdk21-temurin
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
