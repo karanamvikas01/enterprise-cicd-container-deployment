@@ -29,4 +29,22 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            slackSend(
+                channel: '#jenkins-cicd',
+                color: 'good',
+                message: 'SUCCESS: ProdPipeline deployed VProfile to ECS.'
+            )
+        }
+
+        failure {
+            slackSend(
+                channel: '#jenkins-cicd',
+                color: 'danger',
+                message: 'FAILURE: ProdPipeline deployment failed.'
+            )
+        }
+    }
 }
